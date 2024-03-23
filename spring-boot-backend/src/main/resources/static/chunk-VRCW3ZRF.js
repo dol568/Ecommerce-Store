@@ -1,0 +1,1 @@
+var t={production:!0,apiUrl:"/api/"};var p=t.apiUrl,e="/product-brands",s="/product-types",n="products",a="users",i="login",c="register",_="/address",d="cart",x="order";export{p as a,e as b,s as c,n as d,a as e,i as f,c as g,_ as h,d as i,x as j};
