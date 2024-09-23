@@ -1,0 +1,121 @@
+<div class="main" *ngIf="cart$ | async">
+    <h4 class="mb-3">Shipping Address</h4>
+    <form [formGroup]="AddressForm" (ngSubmit)="submitFunc()">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="name">Name</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        formControlName="name"
+                        [ngClass]="{
+            'is-invalid':AddressForm.get('name').errors && AddressForm.get('name').touched
+          }"
+                />
+                <div class="invalid-feedback">
+                    Valid name is required
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="street">Street</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="street"
+                    formControlName="street"
+                    [ngClass]="{
+            'is-invalid':AddressForm.get('street').errors && AddressForm.get('street').touched
+          }"
+            />
+            <div class="invalid-feedback">
+                Please enter your street
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="city">City</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="city"
+                    formControlName="city"
+                    [ngClass]="{
+            'is-invalid':AddressForm.get('city').errors && AddressForm.get('city').touched
+          }"
+            />
+            <div class="invalid-feedback">
+                Please enter your city
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="country"
+                        formControlName="country"
+                        [ngClass]="{
+            'is-invalid':AddressForm.get('country').errors && AddressForm.get('country').touched
+          }"
+                />
+                <div class="invalid-feedback">
+                    Please enter your country
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="province">Province</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="province"
+                        formControlName="province"
+                        [ngClass]="{
+            'is-invalid':
+              AddressForm.get('province').errors &&
+              AddressForm.get('province').touched
+          }"
+                />
+                <div class="invalid-feedback">
+                    Please enter your province.
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="postalCode">Postal Code</label>
+                <input
+                        type="text"
+                        class="form-control"
+                        id="postalCode"
+                        formControlName="postalCode"
+                        [ngClass]="{
+            'is-invalid':
+              AddressForm.get('postalCode').errors &&
+              AddressForm.get('postalCode').touched
+          }"
+                />
+                <div class="invalid-feedback">
+                    Please enter your Postal Code.
+                </div>
+            </div>
+        </div>
+        <hr class="mb-4"/>
+        <button
+                [disabled]="!AddressForm.valid || (cart$ | async).total === 0"
+                type="submit"
+                class="btn-primary btn-lg btn buy-now"
+        >Buy Now
+        </button>
+        <br/>
+        <br/>
+        <span
+                class="text-secondary"
+                *ngIf="!AddressForm.valid || (cart$ | async).total === 0"
+        >Please add item(s) to the cart to proceed.
+    </span>
+    </form>
+</div>

@@ -1,0 +1,13 @@
+<header>
+  <span *ngIf="totalElements && totalElements > 0">
+    Showing <strong>{{ (pageNumber) * pageSize + 1 }} -
+    {{
+    pageNumber * pageSize + pageSize > this.totalElements
+      ? this.totalElements
+      : pageNumber * pageSize + pageSize
+    }}</strong> of <strong>{{ this.totalElements }}</strong> Results
+  </span>
+  <span *ngIf="totalElements === 0">
+    There are <strong>0</strong> results for this filter
+  </span>
+</header>

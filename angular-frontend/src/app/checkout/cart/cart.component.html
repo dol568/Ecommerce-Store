@@ -1,0 +1,24 @@
+<div *ngIf="cart$ | async as cart">
+    <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your cart</span>
+        <span>{{ cart.totalItems }}</span>
+    </h4>
+    <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed"
+            *ngFor="let item of cart.cartItems">
+            <div>
+                <h6 class="my-0" [routerLink]="'/shop/' + item.productId">
+                    {{ item.productName }}
+                </h6>
+                <small class="text-muted">{{ item.quantity }}</small>
+            </div>
+            <span class="text-muted">${{ item.unitPrice }}
+                <i class="fas fa-trash-alt" (click)="deleteCartItem(item.productId)"></i>
+            </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>Total (CAD)</span>
+            <strong>${{ cart.total }}</strong>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,49 @@
+<div class="orders">
+    <div class="card mt-4" *ngFor="let order of orders">
+        <div class="card-header">
+            <table class="table-head table table-sm table-borderless">
+                <tbody>
+                <tr class="text-secondary">
+                    <td><b>Order Date:</b> {{ order.orderDate | date: "short" }}</td>
+                    <td><b>Total:</b> {{ order.total }}</td>
+                    <td><b>Status:</b> {{ order.orderStatus }}</td>
+                    <td><b>Order#</b> {{ order.id }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-body">
+            <b>Shipping to:</b>
+            <br/>
+            <div class="bd-example">
+                <address>
+                    {{ order.shippingAddress.street }}<br/>
+                    {{ order.shippingAddress.city }}, {{ order.shippingAddress.province }}
+                    {{ order.shippingAddress.country }} {{ order.shippingAddress.postalCode }}<br/>
+                </address>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let item of order.orderItems">
+                    <th scope="row">
+<!--                        <img [src]="item.pictureUrl || 'assets/images/default.png'"/>-->
+                        <img [src]="item.pictureUrl || '/default.png'"/>
+                    </th>
+                    <th>{{ item.productName }}</th>
+                    <th>{{ item.quantity }}</th>
+                    <th>{{ item.unitPrice }}</th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
