@@ -14,9 +14,6 @@ export class OrderComponent implements OnInit {
   #orderService = inject(OrderService);
   orders: IOrder[];
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.getOrders();
   }

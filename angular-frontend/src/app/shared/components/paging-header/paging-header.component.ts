@@ -5,8 +5,7 @@ import {CommonModule} from "@angular/common";
   selector: 'app-paging-header',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './paging-header.component.html',
-  styleUrl: './paging-header.component.scss'
+  templateUrl: './paging-header.component.html'
 })
 export class PagingHeaderComponent {
   @Input() totalElements: number;

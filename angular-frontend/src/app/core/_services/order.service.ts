@@ -13,9 +13,6 @@ export class OrderService {
   #http = inject(HttpClient);
   baseUrl = _api_default + _api_order;
 
-  constructor() {
-  }
-
   addOrder(address: IAddress): Observable<any> {
     return this.#http.post(this.baseUrl, address);
   }

@@ -5,8 +5,7 @@ import {CommonModule} from "@angular/common";
   selector: 'app-pager',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './pager.component.html',
-  styleUrl: './pager.component.scss'
+  templateUrl: './pager.component.html'
 })
 export class PagerComponent {
   @Input() totalElements: number;

@@ -19,8 +19,6 @@ export class AccountService {
     private currentUserSource = new BehaviorSubject<IUser>(null)
     currentUser$ = this.currentUserSource.asObservable();
 
-    constructor() {}
-
     loadCurrentUser(token: string) {
         if (token === null) {
             this.currentUserSource.next(null);

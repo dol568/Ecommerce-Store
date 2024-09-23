@@ -9,15 +9,11 @@ import {CommonModule} from "@angular/common";
     selector: 'app-cart',
     standalone: true,
     imports: [RouterModule, CommonModule],
-    templateUrl: './cart.component.html',
-    styleUrl: './cart.component.scss'
+    templateUrl: './cart.component.html'
 })
 export class CartComponent implements OnInit {
     #cartService = inject(CartService);
     cart$: Observable<ICart>;
-
-    constructor() {
-    }
 
     ngOnInit(): void {
         this.cart$ = this.#cartService.cart$;

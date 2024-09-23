@@ -17,9 +17,6 @@ export class AppComponent implements OnInit {
     #accountService = inject(AccountService);
     #cartService = inject(CartService);
 
-    constructor() {
-    }
-
     ngOnInit(): void {
         this.loadCurrentUser();
     }

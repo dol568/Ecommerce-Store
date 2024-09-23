@@ -30,9 +30,6 @@ export class NavbarComponent implements OnInit {
   currentUser$: Observable<IUser>;
   cart$: Observable<ICart>;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     this.currentUser$ = this.#accountService.currentUser$;
     this.cart$ = this.#cartService.cart$;

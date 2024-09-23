@@ -23,9 +23,6 @@ export class ProductsService {
     searchUrl = _api_default + _api_products;
     currentPage: number = 1;
 
-    constructor() {
-    }
-
     products$(): Observable<IApiResponsePage<IPage<IProduct>>> {
         let params = _paramsAppend(this.shopParams);
 

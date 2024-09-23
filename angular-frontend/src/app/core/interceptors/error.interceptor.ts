@@ -8,6 +8,7 @@ import {SnackbarService} from "../_services/snackbar.service";
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   const router = inject(Router);
   const snackbar = inject(SnackbarService);
+  
   return next(req).pipe(
     catchError((error) => {
       if (error) {

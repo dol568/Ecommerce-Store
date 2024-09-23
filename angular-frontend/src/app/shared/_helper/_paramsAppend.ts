@@ -8,7 +8,7 @@ export const _paramsAppend = (paramsData: ShopParams) => {
 
   Object.keys(paramsData).forEach((element) => {
     if (paramsData[element]) {
-      params = params.append(element, paramsData[element]); // Convert to string
+      params = params.append(element, paramsData[element]);
     }
   });
 

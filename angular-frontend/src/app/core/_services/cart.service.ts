@@ -14,9 +14,6 @@ export class CartService {
     private cartSource = new BehaviorSubject<ICart>(null);
     cart$ = this.cartSource.asObservable();
 
-    constructor() {
-    }
-
     getCart(): Observable<ICart> {
         if (localStorage.getItem('token')) {
             return this.#http.get<IApiResponse<ICart>>(this.baseUrl).pipe(

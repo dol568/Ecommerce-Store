@@ -11,8 +11,7 @@ import {CommonModule} from "@angular/common";
     selector: 'app-product-detail',
     standalone: true,
     imports: [CommonModule],
-    templateUrl: './product-detail.component.html',
-    styleUrl: './product-detail.component.scss'
+    templateUrl: './product-detail.component.html'
 })
 export class ProductDetailComponent implements OnInit {
     #cartService = inject(CartService);
@@ -21,9 +20,6 @@ export class ProductDetailComponent implements OnInit {
     #router = inject(Router);
     product: IProduct;
     quantity = 1;
-
-    constructor() {
-    }
 
     ngOnInit(): void {
         this.loadProduct();

@@ -11,8 +11,7 @@ import {CommonModule} from "@angular/common";
     selector: 'app-address',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './address.component.html',
-    styleUrl: './address.component.scss'
+    templateUrl: './address.component.html'
 })
 export class AddressComponent implements OnInit {
     #accountService = inject(AccountService);

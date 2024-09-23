@@ -1,4 +1,4 @@
-import {Component, ElementRef, inject, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {ShopParams} from "../shared/_models/ShopParams";
 import {ProductsService} from "../core/_services/products.service";
 import {IProduct} from "../shared/_models/IProduct";
@@ -13,10 +13,9 @@ import {CommonModule} from "@angular/common";
   selector: 'app-shop',
   standalone: true,
   imports: [PagerComponent, ProductItemComponent, PagingHeaderComponent, CommonModule],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.scss'
+  templateUrl: './shop.component.html'
 })
-export class ShopComponent implements OnInit {
+export class ShopComponent {
   #productService = inject(ProductsService);
   @ViewChild('search') searchTerm: ElementRef;
   products: IProduct[];
@@ -40,8 +39,6 @@ export class ShopComponent implements OnInit {
     this.getBrands();
     this.getTypes();
   }
-
-  ngOnInit(): void {}
 
   getProducts() {
     this.#productService.products$().subscribe({
